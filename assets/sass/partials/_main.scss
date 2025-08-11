@@ -1,0 +1,19 @@
+*,html{
+    margin: 0;
+    padding: 0;
+
+    .main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .hero-text{
+        text-transform: uppercase;
+        font-size: 28px;
+        padding: 3rem 2rem;
+    }
+
+    }
+}
+

@@ -1,0 +1,203 @@
+*, html {
+  margin: 0;
+  padding: 0;
+}
+* .main-container, html .main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+* .main-container .hero-text, html .main-container .hero-text {
+  text-transform: uppercase;
+  font-size: 28px;
+  padding: 3rem 2rem;
+}
+
+.search-container {
+  width: fit-content;
+  box-shadow: 0 0 10px 5px rgba(100, 100, 100, 0.7);
+  border-radius: 25px;
+  padding: 0.3rem 0.5rem;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+}
+.search-container input {
+  border: none;
+  padding-left: 1rem;
+  background-color: white;
+}
+.search-container input:focus {
+  outline: none;
+  background-color: white;
+  box-shadow: none;
+}
+.search-container input::selection {
+  background-color: transparent;
+}
+.search-container button {
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.movies-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+.movies-container h3 {
+  margin: 1rem 2rem;
+  font-size: 24px;
+}
+.movies-container .movies-list {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  overflow-x: scroll;
+}
+.movies-container .movies-list .movie-pic {
+  position: relative;
+  padding: 0.5rem;
+}
+.movies-container .movies-list .movie-pic img {
+  width: 120px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 15px;
+}
+.movies-container .movies-list .movie-pic .title-line {
+  display: none;
+}
+.movies-container .movies-list .movie-pic:hover {
+  transform: scale(1.3);
+  z-index: 10;
+  transition: transform 0.5s;
+}
+.movies-container .movies-list .movie-pic:hover img {
+  filter: brightness(0.3);
+}
+.movies-container .movies-list .movie-pic:hover .title-line {
+  display: block;
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 1rem 0.5rem;
+}
+.movies-container.hide {
+  display: none;
+}
+
+.search-results-container {
+  width: 100%;
+  margin: 2rem;
+}
+.search-results-container .movies-list {
+  display: flex;
+  gap: 1rem;
+  padding: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.search-results-container .movies-list .movie-pic {
+  position: relative;
+}
+.search-results-container .movies-list .movie-pic img {
+  width: 200px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 15px;
+}
+.search-results-container .movies-list .movie-pic .title-line {
+  display: none;
+}
+.search-results-container .movies-list .movie-pic:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s;
+}
+.search-results-container .movies-list .movie-pic:hover img {
+  filter: brightness(0.3);
+}
+.search-results-container .movies-list .movie-pic:hover .title-line {
+  display: block;
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 1rem 0.5rem;
+}
+
+header {
+  padding: 2rem;
+}
+header .switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 22px;
+}
+header .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+header .switch input:checked + .slider {
+  background-color: #2196F3;
+}
+header .switch input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+header .switch input:checked + .slider:before {
+  transform: translateX(30px);
+}
+header .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 34px;
+  width: 55px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 1.2s;
+}
+header .switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  bottom: 3px;
+  left: 4px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.genre-container .icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgb(211, 211, 211);
+}
+.genre-container .icon-container img {
+  width: 25px;
+}
+.genre-container .icon-container .genre-text {
+  font-size: 8px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */

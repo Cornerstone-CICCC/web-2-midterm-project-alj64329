@@ -1,0 +1,21 @@
+.genre-container{
+
+    .icon-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.6rem 0.8rem;
+        border-radius: 50%;
+        box-shadow: 0 0 10px 5px rgba(211,211,211,1);
+        
+        img{
+            width: 25px;
+        }
+
+        .genre-text{
+            font-size: 8px;
+            text-align: center;
+        }
+
+    }
+}
