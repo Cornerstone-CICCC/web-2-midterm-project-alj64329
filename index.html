@@ -8,6 +8,15 @@
 </head>
 <body>
     <header>
+        <div>
+            <img src="./public/logo.svg" alt="Logo" class="logo-img">
+        </div>
+
+        <div class="link-container">
+            <a href="/index.html" class="active">Home</a>
+            <a href="/about.html">AboutUs</a>
+            <a href="/picker.html"><img src="/public/ticket.svg" alt="Movie Ticket"></a>
+        </div>
 
         <!-- Toggle Button -->
         <label class="switch">
@@ -22,32 +31,95 @@
             What movie are you looking for?🍿
         </div>
         <!-- Search container -->
-        <div class="search-container">
+        <div class="search-container" id="search-result">
             <input type="text" id="query">
-            <button class="btn-search">Search</button>
+            <button class="btn-search"><a href="#result-head">Search</a></button>
         </div>
 
-        <div class="genre-container">
-            <div class="icon-container">
-                <img src="./public/icons/action.svg" alt="Action icon" class="action-icon">
-                <div class="genre-text">Action</div>
+        <div class="icon-slider">
+            <img src="./public/icons/left-arrow.svg" alt="left-arrow" class="btn prev-btn">
+            <div class="genre-container">
+
+                <div class="icon-container">
+                    <img src="./public/icons/action.svg" alt="Action icon" class="action-icon">
+                    <div class="genre-text">Action</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/adventure.svg" alt="Adventure icon" class="adventure-icon">
+                    <div class="genre-text">Adventure</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/animation.svg" alt="animation icon" class="animation-icon">
+                    <div class="genre-text">Animation</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/comedy.svg" alt="comedy icon">
+                    <div class="genre-text">Comedy</div>
+                </div>
+                
+                <div class="icon-container">
+                    <img src="./public/icons/crime.svg" alt="crime icon">
+                    <div class="genre-text">Crime</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/documentary.svg" alt="Documentary icon">
+                    <div class="genre-text">Documentary</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/drama.svg" alt="Drama icon">
+                    <div class="genre-text">Drama</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/family.svg" alt="Family icon">
+                    <div class="genre-text">Family</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/fantasy.svg" alt="Fantasy icon">
+                    <div class="genre-text">Fantasy</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/history.svg" alt="history icon">
+                    <div class="genre-text">History</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/horror.svg" alt="Horror icon">
+                    <div class="genre-text">Horror</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/music.svg" alt="Music icon">
+                    <div class="genre-text">Music</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/mystery.svg" alt="Mystery icon">
+                    <div class="genre-text">Mystery</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/romance.svg" alt="Romance icon">
+                    <div class="genre-text">Romance</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/science-fiction.svg" alt="Science Fiction icon">
+                    <div class="genre-text">Science Fiction</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/thriller.svg" alt="Thriller icon">
+                    <div class="genre-text">Thriller</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/tv-movie.svg" alt="TV Movie icon">
+                    <div class="genre-text">TV Movie</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/war.svg" alt="War icon">
+                    <div class="genre-text">War</div>
+                </div>
+                <div class="icon-container">
+                    <img src="./public/icons/western.svg" alt="Western icon">
+                    <div class="genre-text">Western</div>
+                </div>
+
             </div>
-            <div class="icon-container icon-container-adventure">
-                <img src="./public/icons/adventure.svg" alt="Adventure icon" class="adventure-icon">
-                <div class="genre-text">Adventure</div>
-            </div>
-            <div class="icon-container icon-container-adventure">
-                <img src="./public/icons/animation.svg" alt="animation icon" class="animation-icon">
-                <div class="genre-text">Animation</div>
-            </div>
-            <div class="icon-container icon-container-adventure">
-                <img src="./public/icons/comedy.svg" alt="comedy icon" class="comedy-icon">
-                <div class="genre-text">Comedy</div>
-            </div>
-            <div class="icon-container icon-container-adventure">
-                <img src="./public/icons/crime.svg" alt="crime icon" class="crime-icon">
-                <div class="genre-text">Crime</div>
-            </div>
+            <img src="./public/icons/right-arrow.svg" alt="right-arrow" class="btn next-btn">
         </div>
 
         <div class="movies-container">
@@ -57,9 +129,19 @@
         </div>
     </section>
 
-    <footer></footer>
+    <footer>
+        <div>
+            <ul>
+                <li><a href="/about.html">about</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="/picker.html">movie picks</a></li>
+            </ul>
+        </div>
+        <div class="copyright">© 2025 MovieMatch. All rights reserved.</div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/apiKey.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>
 </html>

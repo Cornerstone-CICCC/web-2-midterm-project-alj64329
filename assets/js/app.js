@@ -1,15 +1,20 @@
+const baseUrl = 'https://api.themoviedb.org/3'
+const baseImgUrl = `https://image.tmdb.org/t/p/original`
+
 $(function(){
-     const baseUrl = 'https://api.themoviedb.org/3'
+
+    // Get Trend
     $.ajax({
         url:`${baseUrl}/trending/movie/day`,
         method: "GET",
         headers:{
             accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmY1ZDNhYjhmODc2ODA4M2JjZGE5NjFlZmFlYzg4MyIsIm5iZiI6MTc1MTc1NTg0Ni41MDg5OTk4LCJzdWIiOiI2ODY5YWM0NmQwMjQ5MzllYzJjZWRlYzEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.vBj2VAqD26ak79QDo-Hj5_farUOwsJJ19Kcf1HHBO9c'
+            Authorization: `Bearer ${YOUR_TMDB_API_KEY}`
         },
         success: function(response){
-            const movies = response.results
+            const movies = response.results.slice(0,20)
             displayMovies(movies, 'Trending')
+
         },
         error: function(error){
             console.log(error)
@@ -18,13 +23,12 @@ $(function(){
 
     // Genre List
     let genres =[]
-
     $.ajax({
         url:`${baseUrl}/genre/movie/list`,
         method: "GET",
         headers:{
             accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmY1ZDNhYjhmODc2ODA4M2JjZGE5NjFlZmFlYzg4MyIsIm5iZiI6MTc1MTc1NTg0Ni41MDg5OTk4LCJzdWIiOiI2ODY5YWM0NmQwMjQ5MzllYzJjZWRlYzEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.vBj2VAqD26ak79QDo-Hj5_farUOwsJJ19Kcf1HHBO9c'
+            Authorization: `Bearer ${YOUR_TMDB_API_KEY}`
         },
         success: function(response){
             genres = response.genres
@@ -34,31 +38,25 @@ $(function(){
         }
     })
 
-
-    // movie detail
-    function fetchMovie(movieId, ){
-        $.ajax({
-            url:`${baseUrl}/movie/${movieId}`,
-            method: "GET",
-            headers:{
-                accept: 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmY1ZDNhYjhmODc2ODA4M2JjZGE5NjFlZmFlYzg4MyIsIm5iZiI6MTc1MTc1NTg0Ni41MDg5OTk4LCJzdWIiOiI2ODY5YWM0NmQwMjQ5MzllYzJjZWRlYzEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.vBj2VAqD26ak79QDo-Hj5_farUOwsJJ19Kcf1HHBO9c'
-            },
-            success: function(response){
-                console.log(response)
-                displayModal(response, genres)
-            },
-            error: function(error){
-                console.log(error)
-            }
-        })
-    }
-
-
     // Event
     // Dark-Light mode
     $('.btn-mode').on('click', function(){
-        $('.main-container').toggleClass('dark')
+        $('.main-container').toggleClass('dark-mode')
+        $('.search-container').toggleClass('dark-mode')
+        $('header').toggleClass('dark-mode')
+        $('footer').toggleClass('dark-mode')
+    })
+
+    // prev - next button
+    $('.btn').on('click',function(){
+        const container = $('.genre-container')
+        const type = $(this).attr('class').split(' ').filter(el => el!=="btn")
+        
+        if(type === "prev-btn"){
+            container.prepend(container.children().last())
+        }else{
+            container.append(container.children().first())
+        }
     })
 
     // Movie Search
@@ -71,11 +69,12 @@ $(function(){
                 method: "GET",
                 headers:{
                     accept: 'application/json',
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmY1ZDNhYjhmODc2ODA4M2JjZGE5NjFlZmFlYzg4MyIsIm5iZiI6MTc1MTc1NTg0Ni41MDg5OTk4LCJzdWIiOiI2ODY5YWM0NmQwMjQ5MzllYzJjZWRlYzEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.vBj2VAqD26ak79QDo-Hj5_farUOwsJJ19Kcf1HHBO9c'
+                    Authorization: `Bearer ${YOUR_TMDB_API_KEY}`
                 },
                 success: function(response){
                     const results = response.results
-                    $('.movies-container').addClass('hide')
+                    $('.movies-container').html('')
+                    $('.search-results-container').html('')
                     displayResults(results)
                 },
                 error: function(error){
@@ -98,35 +97,39 @@ $(function(){
         method: "GET",
         headers:{
             accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmY1ZDNhYjhmODc2ODA4M2JjZGE5NjFlZmFlYzg4MyIsIm5iZiI6MTc1MTc1NTg0Ni41MDg5OTk4LCJzdWIiOiI2ODY5YWM0NmQwMjQ5MzllYzJjZWRlYzEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.vBj2VAqD26ak79QDo-Hj5_farUOwsJJ19Kcf1HHBO9c'
+            Authorization: `Bearer ${YOUR_TMDB_API_KEY}`
         },
         success: function(response){
             const movies = response.results
             $('.movies-container').html("")
+            $('.search-results-container').html("")
             displayMovies(movies, type)
         },
         error: function(error){
             console.log(error)
         }
         })
-
-
     })
 
-
     // Show modal
-    $('.movies-container').on('click', '.movie-pic', function(){
+    $('.movies-container,.search-results-container,.picks-container').on('click', '.movie-pic', function(){
         const movieId = $(this).find('img').attr('movieId')
-        fetchMovie(movieId)
-    },)
+        fetchVideo(baseUrl,movieId)
+    })
 
     // Modal close
-    $('.movies-container').on('click','.modal-btn', function(){
-        $('.movies-container div').removeClass('overlay')
+    $('.movies-container,.search-results-container, .picks-container').on('click','.modal-btn', function(){
+        $('.movies-container div, .picks-container div').removeClass('overlay')
         $('.modal').css({
         'display':'none'
         })
     })
+
+    $('.movies-container,.search-results-container, .picks-container').on('click', '.overview-text',function(){
+        console.log('click')
+        $('.modal-overview').slideToggle()
+    })
+
 
 })
 
@@ -150,7 +153,7 @@ function displayMovies(movies, h3Text){
         subContainer.append(div)
         const img =$('<img>')
         img.attr("movieId", movieId)
-        img.attr('src', `https://image.tmdb.org/t/p/original/${imagePath}`)
+        img.attr('src', `${baseImgUrl}/${imagePath}`)
         div.append(img)
 
         // add title for hover effect
@@ -165,7 +168,8 @@ function displayResults(movies){
     const container = $('.search-results-container')
     const num = movies.length
     const h3 = $('<h3></h3>')
-    h3.text(num>0?`${num} Movies Found`:"No Movies Found")
+    h3.text(num>0?"Results":"No Movies Found")
+    h3.attr('id','result-head')
     container.append(h3)
 
     const subContainer = $('<div></div>')
@@ -180,7 +184,7 @@ function displayResults(movies){
     const div = $('<div></div>').addClass("movie-pic")
     subContainer.append(div)
     const img =$('<img>')
-    img.attr("id", movieId)
+    img.attr("movieId", movieId)
     img.attr('src', imagePath)
     div.append(img)
 
@@ -193,8 +197,8 @@ function displayResults(movies){
 
 }
 
-function displayModal(movie){
-    const container = $('.movies-container')
+function displayModal(movie, youtubeUrl){
+    const container = $('.movies-container').length ? $('.movies-container'):$('.picks-container')
 
     const div = $('<div></div>')
     container.append(div)
@@ -206,23 +210,30 @@ function displayModal(movie){
     // extract some data
     const year = movie.release_date.split('-')[0]
     const category= movie.genres.map(genre => genre.name)
+    
 
 
     modal.html(`
-        <div>
-            <img src=https://image.tmdb.org/t/p/original/${movie.backdrop_path} alt ="backdrop img" class="modal-img">
+        <div class="video-container">
+           <iframe width="100%" height ="100%" src="${youtubeUrl}" frameborder = "0" allowfullscreen></iframe>
         </div>
-        <div>
-            <div class="modal-title">${movie.title}</div>
-            <div>${year}</div>
+        <div class="modal-des">
+            <div class ="subline">
+                <div>${year}</div>
+                <div>⭐${movie.vote_average}</div>
+            </div>
+
+            <div class="modal-tagline">${movie.tagline!==""? `"${movie.tagline}"` :""}</div>
 
             <div class="modal-genres">
             </div>
 
-            <div class ="modal-overview">${movie.tagline}</div>
+            <div class="overview-text">Overview: </div>
+            <div class="modal-overview">${movie.overview}</div>
 
+            <div class ="modal-btn">CLOSE</div>
         </div>
-        <div  class ="modal-btn">CLOSE</div>
+
     `)
 
     div.append(modal)
@@ -232,4 +243,48 @@ function displayModal(movie){
         $('.modal-genres').append("<div>"+value+"</div>")
     })
 
+}
+
+// video data
+function fetchVideo(baseUrl,movieId){
+    
+    $.ajax({
+        url:`${baseUrl}/movie/${movieId}/videos?language=en-US`,
+        method: "GET",
+        headers:{
+            accept: 'application/json',
+            Authorization: `Bearer ${YOUR_TMDB_API_KEY}`
+        },
+        success: function(response){
+            const results = response.results
+
+            const filteredResults = results.filter(el =>el.site.toLowerCase()==="youtube" && (el.type.toLowerCase() === "teaser"||el.type.toLowerCase() === "trailer"))
+            const videoKey = filteredResults[0].key
+            const youtubeUrl = videoKey?`https://www.youtube.com/embed/${videoKey}`:null
+
+            fetchMovie(movieId, youtubeUrl)
+        },
+        error: function(error){
+            console.log(error)
+        }
+    })
+}
+
+// movie detail
+function fetchMovie(movieId, youtubeUrl){
+    $.ajax({
+        url:`${baseUrl}/movie/${movieId}`,
+        method: "GET",
+        headers:{
+            accept: 'application/json',
+            Authorization: `Bearer ${YOUR_TMDB_API_KEY}`
+        },
+        success: function(response){
+            console.log(response)
+            displayModal(response, youtubeUrl)
+        },
+        error: function(error){
+            console.log(error)
+        }
+    })
 }

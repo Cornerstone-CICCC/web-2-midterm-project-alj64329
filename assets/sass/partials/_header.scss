@@ -1,11 +1,62 @@
 header{
-    padding: 2rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-img{
+        width: 45px;
+
+        @media screen and (min-width:500px) {
+            width: 60px;
+        }
+    }
+
+    &.dark-mode{
+        background-color:#8B8989;
+        color: white;
+
+        .link-container a{
+            color: white;
+        }
+    }
+
+    .link-container{
+        display: flex;
+        gap: 0.5rem;
+        a{
+            text-decoration: none;
+            font-family: "Luckiest Guy", cursive;
+            color: black;
+
+            &:hover{
+                text-shadow: 
+                    0 0 20px #4CC66E,
+                    0 0 40px #4CC66E,
+                    0 0 60px rgba(76, 198, 110, 0.4);
+            }
+
+            img{
+                height: 20px;
+
+                &:hover{
+                    box-shadow:                    
+                    0 0 20px #4CC66E,
+                }
+            }
+        }
+        @media screen and (min-width:500px) {
+            gap: 1rem;
+        }
+        
+    }
 
     .switch{
         position: relative;
         display: inline-block;
         width: 45px;
-        height: 22px;
+        height: 24px;
 
         input{
             opacity: 0;
@@ -13,15 +64,15 @@ header{
             height: 0;
 
             &:checked + .slider{
-                background-color: #2196F3;
+                background-color: #515050;
             }
 
             &:focus +.slider{
-                box-shadow: 0 0 1px #2196F3;
+                box-shadow: 0 0 1px #515050;
             }
 
             &:checked + .slider:before{
-                transform: translateX(30px);
+                transform: translateX(20px);
             }
         }
 
@@ -29,26 +80,35 @@ header{
             position: absolute;
             cursor: pointer;
             border-radius: 34px;
-            width: 55px;
+            width: 45px;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            
+            border: 1px solid black;
             transition: 1.2s;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.5);
 
             &::before{
                 position: absolute;
                 content: "";
                 height: 16px;
                 width: 16px;
-                bottom: 3px;
+                bottom: 2.5px;
                 left: 4px;
                 border-radius: 50%;
                 background-color: white;
                 transition: 0.4s;
+                border: 1px solid black;
+                box-shadow: 0 1px 5px rgba(0,0,0,0.6);
             }
 
         }
+    }
+
+    @media screen and (min-width:700px) {
+        padding: 2rem;
+        
     }
 }

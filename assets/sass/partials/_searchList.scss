@@ -2,10 +2,16 @@
     width: 100%;
     margin: 2rem;
 
+    h3{
+        margin: 2rem 4rem 1rem 3rem;
+        font-family: "Luckiest Guy", cursive;
+        font-size: 32px;
+    }
+
     .movies-list{
         display: flex;
         gap: 1rem;
-        padding: 3rem;
+        padding: 3rem 0;
         flex-wrap: wrap;
         justify-content: center;
 
@@ -13,7 +19,7 @@
             position: relative;
 
             img{
-                width: 200px;
+                width: 150px;
                 aspect-ratio: 1 / 1;
                 object-fit: cover;
                 object-position: top;
@@ -26,7 +32,7 @@
             }
 
             &:hover{
-                transform: scale(1.1);
+                transform: scale(1.2);
                 transition: transform 0.5s;
                 
                 img{
@@ -44,5 +50,19 @@
                 }
             }
         }
+
+        @media screen and (min-width: 800px){
+            gap: 2rem;
+            padding: 3rem 0;
+
+            .movie-pic{
+                padding: 1rem;
+
+                &:hover{
+                    transform: scale(1.3);
+                }
+            }
+        }
     }
+
 }
