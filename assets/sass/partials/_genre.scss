@@ -6,6 +6,8 @@
     display: flex;
     .btn{
         width: 30px;
+        cursor: pointer;
+        flex-shrink: 0;
     }
     .genre-container{
         position: relative;

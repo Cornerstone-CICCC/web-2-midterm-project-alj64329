@@ -21,8 +21,21 @@
     }
 
     }
+}
 
-    .dark-mode{
+body.dark-mode{
+    background-color:#8B8989 ;
+    color: white;
+
+    a{
+        color: white;
+    }
+    
+    .link-container a{
+        color: white;
+    }
+
+    .modal{
         background-color:#8B8989 ;
         color: white;
     }

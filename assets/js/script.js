@@ -48,16 +48,17 @@ $(function(){
 
         let myProviders =[]
 
-        $('input[type="checkbox"]:checked').each(function(){
+        $('input[name="provider"]:checked').each(function(){
             myProviders.push($(this).val())
         })
+        console.log(myProviders)
 
         inputs.provider = myProviders
 
         slotMovie(genres, providers, inputs)
 
         $('html, body').animate({
-            scrollTop: $('#picks').offset().top
+            scrollTop: $('#picks').offset().top -45
         },1000)
 
         form[0].reset()
@@ -98,6 +99,7 @@ function slotMovie(genres, providers, inputs){
     const genreId = genres.filter(obj=> obj.name === genre)[0].id
 
     const lowerProvider = inputs.provider.map(el=>el.toLowerCase())
+    console.log(lowerProvider)
 
     const platformIds = inputs.provider!==""? 
             lowerProvider.map(el=>

@@ -2,6 +2,12 @@ const baseUrl = 'https://api.themoviedb.org/3'
 const baseImgUrl = `https://image.tmdb.org/t/p/original`
 
 $(function(){
+    const currentTheme = localStorage.getItem('theme')
+
+    if (currentTheme === 'dark') {
+        $('body').addClass('dark-mode')
+        $('.btn-mode').prop('checked',true)
+    }
 
     // Get Trend
     $.ajax({
@@ -41,22 +47,9 @@ $(function(){
     // Event
     // Dark-Light mode
     $('.btn-mode').on('click', function(){
-        $('.main-container').toggleClass('dark-mode')
-        $('.search-container').toggleClass('dark-mode')
-        $('header').toggleClass('dark-mode')
-        $('footer').toggleClass('dark-mode')
-    })
+        $('body').toggleClass('dark-mode',this.checked)
 
-    // prev - next button
-    $('.btn').on('click',function(){
-        const container = $('.genre-container')
-        const type = $(this).attr('class').split(' ').filter(el => el!=="btn")
-        
-        if(type === "prev-btn"){
-            container.prepend(container.children().last())
-        }else{
-            container.append(container.children().first())
-        }
+        localStorage.setItem('theme', this.checked ? 'dark': 'light')
     })
 
     // Movie Search
@@ -76,6 +69,9 @@ $(function(){
                     $('.movies-container').html('')
                     $('.search-results-container').html('')
                     displayResults(results)
+                    $('html, body').animate({
+                        scrollTop: $('#search-results').offset().top
+                    },500)
                 },
                 error: function(error){
                     console.log(error)
@@ -132,6 +128,7 @@ $(function(){
 
 
 })
+
 
 function displayMovies(movies, h3Text){
     const container = $('.movies-container')

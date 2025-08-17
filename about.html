@@ -7,7 +7,25 @@
     <title>About MovieMatch</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div>
+            <img src="./public/logo.svg" alt="Logo" class="logo-img">
+        </div>
+
+        <div class="link-container">
+            <a href="/index.html" class="active">Home</a>
+            <a href="/about.html">AboutUs</a>
+            <a href="/picker.html"><img src="/public/ticket.svg" alt="Movie Ticket"></a>
+        </div>
+
+        <!-- Toggle Button -->
+        <label class="switch">
+            <input type="checkbox" class="btn-mode">
+            <span class="slider"></span>
+        </label>
+
+    </header>
+
     <section class="main-container">
         <div class="about-top">
             <div>
@@ -28,8 +46,19 @@
 
     </section>
 
-    <footer></footer>
+    <footer>
+        <div>
+            <ul>
+                <li><a href="/about.html">about</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="/picker.html">movie picks</a></li>
+            </ul>
+        </div>
+        <div class="copyright">© 2025 MovieMatch. All rights reserved.</div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="./assets/js/test.js"></script>
+    <script src="./assets/js/apiKey.js"></script>
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>

@@ -1,139 +1,155 @@
-.form-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    gap: 1rem;
-    font-family: "Luckiest Guy", cursive;
-    font-size: 15px;
-    border: 1px solid black;
-    margin: 1.5rem;
-    padding: 1rem 0;
-
-    .field{
-        padding: 0.5rem 0;
+.main-body{  
+    padding: 1.5rem; 
+    .form-container{
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        font-family: "Luckiest Guy", cursive;
+        font-size: 15px;
+        border: 1px solid black;
+        padding: 1rem 0;
 
-        .label-genre{
-            margin: 0 0.25rem;
+        .field{
+            padding: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .label-genre{
+                margin: 0 0.25rem;
+            }
         }
-    }
 
-    .year-input{
-        input{
-            width: 100px;
-            margin: 0 0.25rem;
+        .year-input{
+            input{
+                width: 100px;
+                margin: 0 0.25rem;
+            }
         }
-    }
 
-    .checkbox-section{
-        display: flex;
-        justify-content: center;
-        gap: 0.25rem;
+        .checkbox-section{
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
 
-            input[type=checkbox]{
-               position: absolute;
-               opacity: 0;
-               pointer-events: none;
-            
-               &:checked+label{
-                background-color: rgba(0,0,0,0.4);
+                input[type=checkbox]{
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+                
+                &:checked+label{
+                    background-color: rgba(0,0,0,0.4);
 
+                        img{
+                            filter: brightness(0.7);
+                        }
+                    }
+
+                }
+
+                label{
+                    display: block;
+                    background-color: transparent;
+                    width: 65px;
+                    aspect-ratio: 1/1;
+                    border-radius: 25%;
                     img{
-                        filter: brightness(0.7);
+                        width: 50px;
+                        border-radius: 25px;
+                        padding: 0.4rem;
                     }
                 }
-
-            }
-
-            label{
-                display: block;
-                background-color: transparent;
-                width: 65px;
-                aspect-ratio: 1/1;
-                border-radius: 25%;
-                img{
-                    width: 50px;
-                    border-radius: 25px;
-                    padding: 0.4rem;
-                }
-            }
-        
-    }
-    .submit-btn{
-        font-family: "Luckiest Guy", cursive;
-        border: none;
-        font-size: 20px;
-        padding-top: 1rem;
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    @media screen and (min-width: 700px) {
-        margin: 1.5rem 10rem;
-    }
-    @media screen and (min-width: 1000px) {
-        margin: 1.5rem 16rem;
-    }
-
-}
-
-.picks-section{
-    margin:5rem 0;
-}
-
-.picks-container{
-    h3{
-        font-size: 25px;
-        text-align: center;
-        padding-bottom: 3rem;
-        font-family: "Luckiest Guy", cursive;
-    }
-    .movies-list{
-        display: flex;
-        justify-content: center;
-        gap: 0.8rem;
-        font-family: "Poppins", sans-serif;
-        .movie-pic{
-            img{
-                width: 100px;
-                border-radius: 5px;
-
-                @media screen and (min-width: 550px) {
-                    width: 185px;
-                }
-                @media screen and (min-width: 1000px) {
-                    width: 200px;
-                    border-radius: 10px;
-                }
-            }
-            .title-line{
-                display: none;
-            }
+            
+        }
+        .submit-btn{
+            font-family: "Luckiest Guy", cursive;
+            border: none;
+            font-size: 20px;
+            padding: 1rem;
+            background-color: transparent;
+            cursor: pointer;
 
             &:hover{
-                transform: scale(1.1);
-                transition: transform 0.5s;
-                
-                img{
-                    filter: brightness(0.3);                 
-                }
-
-                .title-line{
-                        display: block;
-                        position: absolute;
-                        color: white;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        font-weight: bold;
-                        font-size: 13px;
-                        text-align: center;
-                }
+                text-shadow: 
+                    5px 2px 2px #4CC66E,
             }
         }
 
+        @media screen and (min-width: 700px) {
+            margin: 1.5rem 10rem;
+        }
+        @media screen and (min-width: 1000px) {
+            margin: 1.5rem 16rem;
+        }
+
+    }
+
+    .picks-section{
+        margin:5rem 0;
+    }
+
+    .picks-container{
+        h3{
+            font-size: 25px;
+            text-align: center;
+            padding-bottom: 3rem;
+            font-family: "Luckiest Guy", cursive;
+        }
+        .movies-list{
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            font-family: "Poppins", sans-serif;
+            .movie-pic{
+                img{
+                    width: 100px;
+                    border-radius: 5px;
+
+                    @media screen and (min-width: 550px) {
+                        width: 170px;
+                    }
+                    @media screen and (min-width: 1000px) {
+                        width: 200px;
+                        border-radius: 10px;
+                    }
+                }
+                .title-line{
+                    display: none;
+                }
+
+                &:hover{
+                    transform: scale(1.1);
+                    transition: transform 0.5s;
+                    
+                    img{
+                        filter: brightness(0.3);                 
+                    }
+
+                    .title-line{
+                            display: block;
+                            position: absolute;
+                            color: white;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            font-weight: bold;
+                            font-size: 13px;
+                            text-align: center;
+                    }
+                }
+            }
+
+            @media screen and (min-width:550px) {
+                gap: 1rem;
+            }
+
+        }
+    }
+
+    &.dark-mode{
+        background-color:#8B8989;
+        color: white;
     }
 }

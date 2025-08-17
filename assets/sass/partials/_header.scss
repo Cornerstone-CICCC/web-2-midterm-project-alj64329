@@ -13,14 +13,6 @@ header{
         }
     }
 
-    &.dark-mode{
-        background-color:#8B8989;
-        color: white;
-
-        .link-container a{
-            color: white;
-        }
-    }
 
     .link-container{
         display: flex;

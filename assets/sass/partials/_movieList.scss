@@ -136,7 +136,7 @@
                 justify-content: center;
                 gap: 1rem;
                 font-size: 14px;
-                padding: 1rem;
+                padding-bottom: 1rem;
             }
 
             .modal-tagline{
@@ -166,7 +166,6 @@
             .modal-overview{
                 font-size: 13px;
                 display: none;
-                padding: 0.8rem;
                 text-align: start;
             }
         }
@@ -178,9 +177,3 @@
     }
 }
 
-.dark-mode{
-    .modal{
-        background-color:#8B8989 ;
-        color: white;
-    }
-}
