@@ -3,18 +3,19 @@ $(function(){
         const container = $('.genre-container')
 
         const itemWidth = slides.outerWidth(true)
-        let currentIndex = 1
-
-        const firstClone = slides.first().clone()
-        const lastClone = slides.last().clone()
-
-        container.append(firstClone)
-        container.prepend(lastClone)
-
+        let currentIndex = 0
+        const totalSlides = slides.length
+        
         slides = container.find('.icon-container')
 
         function move(step){
             currentIndex += step
+            if(currentIndex >= totalSlides){
+                currentIndex =0
+            }
+            if(currentIndex <0){
+                currentIndex=totalSlides-1
+            }
             $('.icon-container').css({
                 'transition':'transform 0.4s ease-in-out',
                 'transform':`translateX(-${itemWidth * currentIndex}px)`
@@ -28,20 +29,6 @@ $(function(){
                 move(1)
             }
         })
-
-      // Reset instantly if on a clone
-    container.on('transitionend webkitTransitionEnd oTransitionEnd', function() {
-        if (slides.eq(currentIndex).is(firstClone)) {
-        slides.css('transition', 'none');
-        currentIndex = 1;
-        slides.css('transform', `translateX(-${itemWidth * currentIndex}px)`);
-        }
-        if (slides.eq(currentIndex).is(lastClone)) {
-        slides.css('transition', 'none');
-        currentIndex = slides.length - 2;
-        slides.css('transform', `translateX(-${itemWidth * currentIndex}px)`);
-        }
-    })
 
 
 })

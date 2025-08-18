@@ -87,6 +87,7 @@ $(function(){
     $('.icon-container').on('click',function(){
         const type = $(this).find('.genre-text').text()
         const genreId = genres.filter(obj=> obj.name === type)[0].id
+        console.log(type,genreId)
  
         $.ajax({
         url:`${baseUrl}/discover/movie?with_genres=${genreId}&language=en-US&sort_by=popularity.desc`,
@@ -208,11 +209,12 @@ function displayModal(movie, youtubeUrl){
     const year = movie.release_date.split('-')[0]
     const category= movie.genres.map(genre => genre.name)
     
-
-
+// ${youtubeUrl?`<iframe width="100%" height ="100%" src="${youtubeUrl}" frameborder = "0" allowfullscreen></iframe>`:
+// <div class="video-container ${youtubeUrl?"":"no-video"} ">
     modal.html(`
-        <div class="video-container">
-           <iframe width="100%" height ="100%" src="${youtubeUrl}" frameborder = "0" allowfullscreen></iframe>
+        <div class="video-container ${youtubeUrl?"":"no-video"} ">
+            ${youtubeUrl?`<iframe width="100%" height ="100%" src="${youtubeUrl}" frameborder = "0" allowfullscreen></iframe>`:
+            `<div class="modal-novideo">${movie.title}</div>`}
         </div>
         <div class="modal-des">
             <div class ="subline">
@@ -255,8 +257,13 @@ function fetchVideo(baseUrl,movieId){
         success: function(response){
             const results = response.results
 
-            const filteredResults = results.filter(el =>el.site.toLowerCase()==="youtube" && (el.type.toLowerCase() === "teaser"||el.type.toLowerCase() === "trailer"))
-            const videoKey = filteredResults[0].key
+            let videoKey=null
+
+            if(results.length !==0){
+                const filteredResults = results.filter(el =>el.site.toLowerCase()==="youtube" && (el.type.toLowerCase() === "teaser"||el.type.toLowerCase() === "trailer"))
+                videoKey = filteredResults[0].key
+            }
+
             const youtubeUrl = videoKey?`https://www.youtube.com/embed/${videoKey}`:null
 
             fetchMovie(movieId, youtubeUrl)
@@ -277,7 +284,6 @@ function fetchMovie(movieId, youtubeUrl){
             Authorization: `Bearer ${YOUR_TMDB_API_KEY}`
         },
         success: function(response){
-            console.log(response)
             displayModal(response, youtubeUrl)
         },
         error: function(error){

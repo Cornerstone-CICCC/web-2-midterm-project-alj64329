@@ -41,3 +41,19 @@ body.dark-mode{
     }
 }
 
+.moveup-btn{
+    width: fit-content;
+    padding: 0.5rem;
+    background-color: #59BE4C;
+    border-radius: 50%;
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+    z-index: 50;
+    a{
+        text-decoration: none;
+        img{
+            width: 15px;
+        }
+    }
+}

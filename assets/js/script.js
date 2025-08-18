@@ -51,7 +51,6 @@ $(function(){
         $('input[name="provider"]:checked').each(function(){
             myProviders.push($(this).val())
         })
-        console.log(myProviders)
 
         inputs.provider = myProviders
 
@@ -99,7 +98,6 @@ function slotMovie(genres, providers, inputs){
     const genreId = genres.filter(obj=> obj.name === genre)[0].id
 
     const lowerProvider = inputs.provider.map(el=>el.toLowerCase())
-    console.log(lowerProvider)
 
     const platformIds = inputs.provider!==""? 
             lowerProvider.map(el=>
@@ -111,9 +109,9 @@ function slotMovie(genres, providers, inputs){
             return index < platformIds.length-1?`${value} |`:value })
 
     const queriedUrl=randomYear!==""?
-        `${baseUrl}/discover/movie?with_genres=${genreId}&sort_by=popularity.desc&primary_release_year=${randomYear}&watch_region=${country}&with_watch_provider=
+        `${baseUrl}/discover/movie?include_adult=false&vote_average.gte=1&with_genres=${genreId}&sort_by=popularity.desc&primary_release_year=${randomYear}&watch_region=${country}&with_watch_provider=
         ${platformQuery}`: 
-        `${baseUrl}/discover/movie?with_genres=${genreId}&sort_by=popularity.desc&watch_region=${country}&with_watch_provider=
+        `${baseUrl}/discover/movie?include_adult=false&with_genres=${genreId}&sort_by=popularity.desc&watch_region=${country}&with_watch_provider=
         ${platformQuery}`
 
     $.ajax({

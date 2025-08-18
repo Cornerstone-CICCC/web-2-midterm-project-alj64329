@@ -22,6 +22,7 @@
         .movie-pic{
             position: relative;
             padding: 0.5rem;
+            cursor: pointer;
 
             img{
                 width: 130px;
@@ -116,6 +117,11 @@
                 border: none;
             }
         }
+
+        .no-video{
+            padding:2rem 0;
+            font-size: 22px;
+        }
         
         .modal-des{
             display: flex;
@@ -134,6 +140,7 @@
             .modal-genres{
                 display: flex;
                 justify-content: center;
+                flex-wrap: wrap;
                 gap: 1rem;
                 font-size: 14px;
                 padding-bottom: 1rem;
@@ -161,6 +168,7 @@
             .overview-text{
                 font-weight: bold;
                 text-align: start;
+                cursor: pointer;
             }
 
             .modal-overview{
