@@ -4,7 +4,8 @@ $(function(){
 
         const itemWidth = slides.outerWidth(true)
         let currentIndex = 0
-        const totalSlides = slides.length
+        const totalSlides = slides.length -2
+    
         
         slides = container.find('.icon-container')
 

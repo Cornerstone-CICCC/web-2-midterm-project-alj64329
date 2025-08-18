@@ -58,7 +58,7 @@ $(function(){
 
         if(query!==""){
             $.ajax({
-                url:`${baseUrl}/search/movie?query=${encodeURIComponent(query)}&sort_by=popularity.desc`,
+                url:`${baseUrl}/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&sort_by=popularity.desc`,
                 method: "GET",
                 headers:{
                     accept: 'application/json',
@@ -66,6 +66,9 @@ $(function(){
                 },
                 success: function(response){
                     const results = response.results
+                    console.log(results)
+
+
                     $('.movies-container').html('')
                     $('.search-results-container').html('')
                     displayResults(results)
@@ -87,7 +90,6 @@ $(function(){
     $('.icon-container').on('click',function(){
         const type = $(this).find('.genre-text').text()
         const genreId = genres.filter(obj=> obj.name === type)[0].id
-        console.log(type,genreId)
  
         $.ajax({
         url:`${baseUrl}/discover/movie?with_genres=${genreId}&language=en-US&sort_by=popularity.desc`,
@@ -219,7 +221,7 @@ function displayModal(movie, youtubeUrl){
         <div class="modal-des">
             <div class ="subline">
                 <div>${year}</div>
-                <div>⭐${movie.vote_average}</div>
+                <div>⭐${movie.vote_average.toFixed(1)}</div>
             </div>
 
             <div class="modal-tagline">${movie.tagline!==""? `"${movie.tagline}"` :""}</div>
@@ -291,3 +293,4 @@ function fetchMovie(movieId, youtubeUrl){
         }
     })
 }
+
