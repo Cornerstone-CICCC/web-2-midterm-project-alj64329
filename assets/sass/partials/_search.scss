@@ -1,0 +1,55 @@
+.search-container{
+    width: fit-content;
+    box-shadow: 0 0 10px 5px rgba(100,100,100,0.7);
+    border-radius: 25px;
+    padding: 0.3rem 0.5rem;
+    margin: 2rem 0 5rem 0;
+    display: flex;
+    align-items: center;
+
+    input{
+        border: none;
+        padding-left: 1rem;
+        background-color: transparent;
+
+        &:focus{
+            outline: none;
+            box-shadow: none;
+        }
+        &::selection{
+            background-color: transparent;
+        }
+
+        @media screen and (min-width: 700px) {
+            width: 250px;
+        }
+    }
+    button{
+        padding: 0.3rem 0.8rem;
+        border: none;
+        border-radius: 20px;
+        font-weight: 800;
+        background-color: black;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+    }
+
+    &.dark-mode{
+        box-shadow: 0 0 10px 5px white;
+
+        button{
+            background-color: white;
+            a{
+                color: black;
+                background-color: white;
+            }
+        }
+    }
+
+}

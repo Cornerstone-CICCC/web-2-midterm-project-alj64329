@@ -1,0 +1,49 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 3rem 1rem 2rem;
+    gap: 2rem;
+
+    li{
+        list-style: none;
+        a{
+            font-family: "Luckiest Guy", cursive;
+            text-decoration: none;
+            color: black;
+            font-size: 12px;
+            &:hover{
+                text-shadow: 
+                    0 0 20px #4CC66E,
+                    0 0 40px #4CC66E,
+                    0 0 60px rgba(76, 198, 110, 0.4);
+            }
+        }
+    }
+
+    .copyright{
+        font-family: "Poppins", sans-serif;
+        font-size: 8px;
+        margin: auto 0;
+    }
+
+    &.dark-mode{
+        background-color:#8B8989;
+        color: white;
+
+        a{
+            color: white;
+        }
+    }
+
+    @media screen and (min-width:700px) {
+        flex-direction: row;
+        justify-content: space-between;
+        
+        a{
+            font-size: 13px;
+        }
+    }
+
+}

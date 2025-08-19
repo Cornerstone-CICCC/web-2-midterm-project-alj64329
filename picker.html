@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Random Movie Picker</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="./public/logo.svg" alt="Logo" class="logo-img">
+        </div>
+
+        <div class="link-container">
+            <a href="/index.html" class="active">Home</a>
+            <a href="/about.html">AboutUs</a>
+            <a href="/picker.html"><img src="/public/ticket.svg" alt="Movie Ticket"></a>
+        </div>
+
+        <!-- Toggle Button -->
+        <label class="switch">
+            <input type="checkbox" class="btn-mode">
+            <span class="slider"></span>
+        </label>
+
+    </header>
+
+    <div class="moveup-btn">
+        <a href="#"><img src="./public/up-arrow.svg" alt="Up Arrow"></a>
+    </div>
+
+    <div class="main-body">
+        <div class="form-container">
+            Enter your preference
+        <form class="query-form">
+            <div class="year-input field">
+                <label>Year: </label>
+                <input type="number" name="year-from" id="year-from" min="1980" pattern="\d{4}">
+                -
+                <input type="number" name="year-to" id="year-to" pattern="\d{4}">
+            </div>
+
+            <div class="field">
+            <label for="genre" class="label-genre">Genre:</label>
+            <select name="genre" id="genre">
+                <option value=""></option>
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Animation">Animation</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Crime">Crime</option>
+                <option value="Documentary">Documantary</option>
+                <option value="Drama">Drama</option>
+                <option value="Family">Family</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="History">History</option>
+                <option value="Horror">Horror</option>
+                <option value="Music">Music</option>
+                <option value="Mstery">Mystery</option>
+                <option value="Romance">Romance</option>
+                <option value="Science-fiction">Science Fiction</option>
+                <option value="Thriller">Thriller</option>
+                <option value="TV Movie">TV Movie</option>
+                <option value="War">War</option>
+                <option value="Western">Western</option>
+            </select>
+            </div>
+
+            <div class="field">
+                your platform: 
+            <div class="checkbox-section">
+                <div>
+                    <input type="checkbox" id="Netflix" name="provider" value="Netflix" />
+                    <label for="Netflix"></label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Disney-Plus" name="provider" value="Disney Plus" />
+                    <label for="Disney-Plus"></label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Amazon-Prime" name="provider" value="Amazon Prime Video" />
+                    <label for="Amazon-Prime"></label>
+                </div>
+            </div>
+            </div>
+            
+            <input type="submit" value="Get 3 Picks" class="submit-btn">
+        </form>
+        </div>
+
+        <section class="picks-section">
+            <div class="picks-container" id="picks">
+            </div>
+
+        </section>
+    </div>
+
+    <footer>
+        <div>
+            <ul>
+                <li><a href="/about.html">about</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#">movie picks</a></li>
+            </ul>
+        </div>
+        <div class="copyright">© 2025 MovieMatch. All rights reserved.</div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/apiKey.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

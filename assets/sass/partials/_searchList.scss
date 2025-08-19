@@ -1,0 +1,68 @@
+.search-results-container{
+    width: 100%;
+    margin: 2rem;
+
+    h3{
+        margin: 2rem 4rem 1rem 3rem;
+        font-family: "Luckiest Guy", cursive;
+        font-size: 32px;
+    }
+
+    .movies-list{
+        display: flex;
+        gap: 1rem;
+        padding: 3rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .movie-pic{
+            position: relative;
+
+            img{
+                width: 150px;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                object-position: top;
+                border-radius: 15px;
+            }
+
+            .title-line{
+                
+                display: none;
+            }
+
+            &:hover{
+                transform: scale(1.2);
+                transition: transform 0.5s;
+                
+                img{
+                    filter: brightness(0.3);                 
+                }
+
+                .title-line{
+                        display: block;
+                        position: absolute;
+                        color: white;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        text-align: center;
+                }
+            }
+        }
+
+        @media screen and (min-width: 800px){
+            gap: 2rem;
+            padding: 3rem 0;
+
+            .movie-pic{
+                padding: 1rem;
+
+                &:hover{
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+
+}

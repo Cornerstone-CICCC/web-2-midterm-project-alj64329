@@ -1,0 +1,73 @@
+.main-container{
+    padding: 0 2rem 2rem 2rem;
+
+
+    &.dark-mode{
+        background-color:#8B8989;
+        color: white;
+    }
+
+    .about-top{
+        font-family: "Luckiest Guy", cursive;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 1rem;
+        h2{
+            font-size: 36px;
+            padding: 2rem;
+        }
+
+        h3{
+            font-size: 15px;
+        }
+
+        img{
+            width: 250px;
+            margin: 0 auto;
+
+            &.about-desktop-img{
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (min-width:930px) {
+        padding: 0 4rem 2rem 4rem;
+        .about-top{
+            flex-direction: row;
+            justify-content: start;
+            position: relative;
+            width: 100%;
+
+            div{
+                display: flex;
+                flex-direction: column;
+                h2{
+                    padding-top: 4rem;
+                    font-size: 40px;
+                }
+
+                h3{
+                    padding: 4rem 0 2rem 6rem;
+                    font-size: 22px;
+                }
+            }
+            img{
+            &.about-mobile-img{
+                display: none;
+            }
+            &.about-desktop-img{
+                display: block;
+                position: absolute;
+                right: 10%;
+            }
+            }
+        }
+
+        .about-bottom{
+            margin: 7rem 2rem;
+        }
+    }
+}

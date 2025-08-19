@@ -1,0 +1,55 @@
+.icon-slider{
+    position: relative;
+    width: fit-content;
+    overflow: hidden;
+
+    display: flex;
+    .btn{
+        width: 30px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    .genre-container{
+        position: relative;
+        left: 0;
+
+        display: flex;
+        justify-content: space-between;
+        width: 75vw;
+        overflow: hidden;
+        gap: 1.3rem;
+        padding: 0.9rem;
+
+        .icon-container{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 5px rgba(211,211,211,1);
+            cursor: pointer;
+
+            img{
+                width: 25px;
+                padding: 0 5px;
+            }
+
+            .genre-text{
+                font-size: 8px;
+                text-align: center;
+                position: absolute;
+                bottom: 7%;
+                font-weight: 600;
+            }
+
+            &.icon-hidden{
+                display: none;
+            }
+        }
+
+    }
+}

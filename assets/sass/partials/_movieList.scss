@@ -1,0 +1,187 @@
+.movies-container{
+    width: 100%;
+    overflow-x: hidden;
+
+    h3{
+        margin: 2rem 4rem 1rem 3rem;
+        font-family: "Luckiest Guy", cursive;
+        font-size: 32px;
+    }
+
+    .movies-list{
+        display: flex;
+        gap: 1rem;
+        padding:1rem;
+        width: 100%;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+
+        .movie-pic{
+            position: relative;
+            padding: 0.5rem;
+            cursor: pointer;
+
+            img{
+                width: 130px;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                object-position: top;
+                border-radius: 15px;
+
+                @media screen and (min-width:745px) {
+                    width: 200px;        
+                }
+            }
+
+            .title-line{
+                
+                display: none;
+            }
+
+            &:hover{
+                transform: scale(1.3);
+                transition: transform 0.5s;
+                
+                img{
+                    filter: brightness(0.3);                 
+                }
+
+                .title-line{
+                        display: block;
+                        position: absolute;
+                        color: white;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-weight: bold;
+                        text-align: center;
+                }
+            }
+        }
+        
+        @media screen and (min-width:745px) {
+            padding: 2rem;
+            
+            img{
+                width: 150px;        
+            }
+        }
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.8);
+    z-index: 100;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+
+    .modal{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 50%;
+        max-height: 90vh;
+        max-width: 500px;
+        min-width: 280px;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow-y: auto;
+        scrollbar-width:none;
+        padding: 1rem;
+
+        .video-container{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding-top: 56.25%;
+
+            iframe{
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                border: none;
+            }
+        }
+
+        .no-video{
+            padding:2rem 0;
+            font-size: 22px;
+        }
+        
+        .modal-des{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 2rem 1rem 2rem;
+            
+            .subline{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 2rem;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .modal-genres{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+                font-size: 14px;
+                padding-bottom: 1rem;
+            }
+
+            .modal-tagline{
+                font-weight: 600;
+                font-style: italic;
+                color: #605D5D;
+                font-size: 16px;
+                padding: 1rem 0;
+            }
+
+            .modal-btn{
+                padding: 0.2rem 1rem;
+                width: fit-content;
+                font-weight: bold;
+                color: white;
+                background-color: black;
+                margin: 0.5rem auto;
+                cursor: pointer;
+
+            }
+
+            .overview-text{
+                font-weight: bold;
+                text-align: start;
+                cursor: pointer;
+            }
+
+            .modal-overview{
+                font-size: 13px;
+                display: none;
+                text-align: start;
+            }
+        }
+
+        @media screen and (min-width:670px) {
+            padding: 2rem 0 0 0;
+            
+        }
+    }
+}
+
